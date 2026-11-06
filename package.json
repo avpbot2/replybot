@@ -1,0 +1,18 @@
+{
+  "name": "replybot-platform",
+  "private": true,
+  "version": "1.0.0",
+  "workspaces": [
+    "apps/api",
+    "apps/web"
+  ],
+  "scripts": {
+    "dev": "concurrently -k \"npm:dev --workspace @replybot/api\" \"npm:dev --workspace @replybot/web\"",
+    "build": "npm run build --workspace @replybot/api && npm run build --workspace @replybot/web",
+    "start": "npm run start --workspace @replybot/api",
+    "typecheck": "npm run typecheck --workspace @replybot/api && npm run typecheck --workspace @replybot/web"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
